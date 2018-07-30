@@ -105,7 +105,7 @@ class ViewController: UIViewController {
             bestScore = score
         }
         print("Best Score:\(bestScore)")
-        HighestScore.text = "\(bestScore)"
+        HighestScore.text = "Best Score\(bestScore)"
     }
     
     func gameStart() {
