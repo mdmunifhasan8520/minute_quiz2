@@ -9,11 +9,25 @@
 import UIKit
 
 class StartScreenViewController: UIViewController {
-
+    
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var userName: UILabel!
+    
+    @IBAction func Start(_ sender: Any) {
+        //print("hello world")
+        UserDefaults.standard.set(nameField.text, forKey: "name")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let nameObject = UserDefaults.standard.object(forKey: "name")
+        if let name = nameObject as? String {
+            nameField.text = name
+            userName.text = nameField.text
+            //print(name)
+        }
     }
 
     override func didReceiveMemoryWarning() {
