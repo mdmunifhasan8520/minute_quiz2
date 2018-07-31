@@ -46,19 +46,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         HighestScore.text = "\(bestScore)"
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        //creating question object
-        /*//next question function is alternative for below three line
-         
-        let firstQuestion = allQuestions.list[0]
-        questionImage.image = firstQuestion.questionImage
-        questionLabel.text = firstQuestion.questionText
-            */
-        //UserDefaults.standard.set("hello", forKey: "name")
-        
-        
+
         gameStart()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -87,11 +77,9 @@ class ViewController: UIViewController {
         correctAnswerCountLabel.text = "\(correctAnswerCount)"
         wrongAnswerCountLabel.text = "\(wrongAnswerCount)"
         
-        //scoreLabel.text = String(score)
+      
         scoreLabel.text = "Score: \(score)"
-        
         progressLabel.text = "\(questionNumber + 1) / 5"
-        
         progressBar.frame.size.width = (view.frame.size.width / 5) * CGFloat(questionNumber + 1)
     }
     
@@ -106,11 +94,18 @@ class ViewController: UIViewController {
         if score >= bestScore {
             bestScore = score
         }
-        print("Best Score:\(bestScore)")
-        HighestScore.text = "Best Score\(bestScore)"
-        
+    
+        HighestScore.text = "Best Score:\(bestScore)"
+        UserDefaults.standard.set("\(bestScore)", forKey: "hscore")
         //permanent data storage
         /*
+         UserDefaults.standard.set("hello:\(bestScore)", forKey: "hscore")
+         let highScoreObject = UserDefaults.standard.object(forKey: "hscore")
+         if let highScore = highScoreObject as? String {
+         print(highScore)
+         }
+         
+         
         UserDefaults.standard.set("hello:\(bestScore)", forKey: "name")
         let nameObject = UserDefaults.standard.object(forKey: "name")
         if let name = nameObject as? String {
@@ -122,6 +117,7 @@ class ViewController: UIViewController {
         if let array = arrayObject as? NSArray {
             print(array)
         }*/
+   
     }
     
     func gameStart() {

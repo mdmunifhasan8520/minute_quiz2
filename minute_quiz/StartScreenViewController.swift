@@ -13,9 +13,15 @@ class StartScreenViewController: UIViewController {
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var userName: UILabel!
     
+   
+    
+    @IBOutlet weak var highestScoreLabel: UILabel!
+    
+    
     @IBAction func Start(_ sender: Any) {
         //print("hello world")
         UserDefaults.standard.set(nameField.text, forKey: "name")
+        UserDefaults.standard.set(highestScoreLabel.text, forKey: "hscore")
     }
     
     override func viewDidLoad() {
@@ -27,6 +33,12 @@ class StartScreenViewController: UIViewController {
             nameField.text = name
             userName.text = nameField.text
             //print(name)
+        }
+        
+        let highestScoreLabelObject = UserDefaults.standard.object(forKey: "hscore")
+        if let highestScore = highestScoreLabelObject as? String {
+            highestScoreLabel.text = highestScore
+            
         }
     }
 
