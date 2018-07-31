@@ -55,6 +55,8 @@ class ViewController: UIViewController {
         questionImage.image = firstQuestion.questionImage
         questionLabel.text = firstQuestion.questionText
             */
+        //UserDefaults.standard.set("hello", forKey: "name")
+        
         
         gameStart()
     }
@@ -106,6 +108,14 @@ class ViewController: UIViewController {
         }
         print("Best Score:\(bestScore)")
         HighestScore.text = "Best Score\(bestScore)"
+        
+        
+        //UserDefaults.standard.set("hello:\(bestScore)", forKey: "name")
+        let nameObject = UserDefaults.standard.object(forKey: "name")
+        if let name = nameObject as? String {
+             print(name)
+        }
+       
     }
     
     func gameStart() {
