@@ -43,17 +43,11 @@ class StartScreenViewController: UIViewController {
         }
         
         //permanent highest score saved section
-        let highestScoreLabelObject = UserDefaults.standard.integer(forKey: "hscore")
-        if let highestScore = highestScoreLabelObject as? Int {
-            highestScoreLabel.text = "\(highestScore)"
-            
-        }
-        let forGameplayhighestscoreObject = UserDefaults.standard.integer(forKey: "hscoreforGamePlay")
-        if let forGameplayhighestscore = forGameplayhighestscoreObject as? Int {
-            forGamePlayHighestScoreLabel.text = "\(forGameplayhighestscore)"
-            
-            
-        }
+        let highestScore = UserDefaults.standard.integer(forKey: "hscore")
+        highestScoreLabel.text = "\(highestScore)"
+        
+        let forGameplayhighestscore = UserDefaults.standard.integer(forKey: "hscoreforGamePlay")
+        forGamePlayHighestScoreLabel.text = "\(forGameplayhighestscore)"
         
     }
 

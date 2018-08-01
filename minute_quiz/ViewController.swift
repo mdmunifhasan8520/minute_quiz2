@@ -61,17 +61,9 @@ class ViewController: UIViewController {
        
         
         
-        let dataObject = UserDefaults.standard.integer(forKey: "hscore")
-        let data2Object = UserDefaults.standard.integer(forKey: "hscoreforGamePlay")
-        if let data = dataObject as? Int {
-            bestScore = data
-            print("bestScore:\(bestScore)")
-        }
-       
-        if let data2 = data2Object as? Int {
-            homeBestScore = data2
-            print("homeBestScore:\(homeBestScore)")
-        }
+        bestScore = UserDefaults.standard.integer(forKey: "hscore")
+        homeBestScore = UserDefaults.standard.integer(forKey: "hscoreforGamePlay")
+        
    print("bestScore:\(bestScore)")
         gameStart()
         
