@@ -27,8 +27,11 @@ class ViewController: UIViewController {
     var wrongAnswerCount : Int = 0
     
     //correct answer collection
-    var myCorrectAnswerCollecction = [String]()
-    var myWrongAnswerCollecction = [String]()
+    var myCorrectAnswerCollecction = [Int]()
+    var myWrongAnswerCollecction = [Int]()
+    
+    var storedCorrentAnswerArr = [Int]()
+    var storedWrongAnswerArr = [Int]()
     
     //@IBOutlet weak var highestScoreLabel: UILabel!
     
@@ -57,15 +60,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        allQuestions.list.sort { (a, b) -> Bool in
-            return (arc4random() % 6) > 3
-        }
-        //highestScoreLabel.text = "Best Score:\(bestScore)"
-       
-        
         
         bestScore = UserDefaults.standard.integer(forKey: "hscore")
         homeBestScore = UserDefaults.standard.integer(forKey: "hscoreforGamePlay")
+        
+        storedCorrentAnswerArr = UserDefaults.standard.object(forKey: "scaarr") as? [Int] ?? [Int]()
+        
+        storedWrongAnswerArr = UserDefaults.standard.object(forKey: "swaarr") as? [Int] ?? [Int]()
         
    print("bestScore:\(bestScore)")
         gameStart()
@@ -127,6 +128,15 @@ class ViewController: UIViewController {
             bestScore = score
             userDefaults.set("\(bestScore)", forKey: "hscore")
         }
+        print(myCorrectAnswerCollecction)
+        let newCorrectAnswers = myCorrectAnswerCollecction.filter { (id) -> Bool in
+            return (storedCorrentAnswerArr.index(of: id) == nil) ? true : false
+        }
+        print(newCorrectAnswers)
+        storedCorrentAnswerArr.append(contentsOf: newCorrectAnswers)
+        print(storedCorrentAnswerArr)
+        UserDefaults.standard.set(storedCorrentAnswerArr, forKey: "scaarr")
+        
         /*
         if bestScore > homeBestScore {
             homeBestScore = bestScore
@@ -138,6 +148,9 @@ class ViewController: UIViewController {
     }
     
     func gameStart() {
+        myCorrectAnswerCollecction.removeAll()
+        myWrongAnswerCollecction.removeAll()
+        allQuestions.list.sort { (a, b) -> Bool in (arc4random() % 6) > 3}
         timer.text = "\(startInt)"
         startTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startGameTimer), userInfo: nil, repeats: true)
         nextQuestion()
@@ -169,17 +182,17 @@ class ViewController: UIViewController {
     }
     
     func checkAnswer() {
-        let correctAnswer = allQuestions.list[questionNumber].answer
+        let currentQuestion = allQuestions.list[questionNumber]
         
-        if correctAnswer == pickedAnswer {
+        if currentQuestion.answer == pickedAnswer {
             print("you got it")
             score = score + 1
             correctAnswerCount = correctAnswerCount + 1
-        
+            myCorrectAnswerCollecction.append(currentQuestion.id)
         } else {
             print("shame")
             wrongAnswerCount = wrongAnswerCount + 1
-            
+            myWrongAnswerCollecction.append(currentQuestion.id)
         }
     }
     
