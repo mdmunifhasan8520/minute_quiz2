@@ -39,6 +39,7 @@ class ViewController: UIViewController {
     var startInt = 2
     var startTimer = Timer()
     
+    var i = 1
     
     
     //ui elements from the storyboard
@@ -51,14 +52,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var correctAnswerCountLabel: UILabel!
     @IBOutlet weak var wrongAnswerCountLabel: UILabel!
     
+    //@IBOutlet weak var ImageArray: UIImageView!
     
     //create instance of UserDefaults
     let userDefaults = UserDefaults.standard
+    
+    //@IBOutlet weak var ImageArray: UIImageView!
+    @IBOutlet weak var ImageArrayView: UIImageView!
+    var imageArray: [UIImage] = []
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //imageArray = ImageArray
         
         bestScore = userDefaults.integer(forKey: "hscore")
         homeBestScore = userDefaults.integer(forKey: "hscoreforGamePlay")
@@ -126,6 +133,9 @@ class ViewController: UIViewController {
         print(storedCorrentAnswerArr)
         userDefaults.set(storedCorrentAnswerArr, forKey: "scaarr")
         
+        
+        //ImageArray.image = allQuestions.list[currentQuestion.id].questionImage
+        
     }
     
     func updateUI() {
@@ -165,12 +175,27 @@ class ViewController: UIViewController {
     
     func checkAnswer() {
         let currentQuestion = allQuestions.list[questionNumber]
-        
+        //var i = 0
         if currentQuestion.answer == pickedAnswer {
             print("you got it")
             score = score + 1
             correctAnswerCount = correctAnswerCount + 1
             myCorrectAnswerCollecction.append(currentQuestion.id)
+            //ImageArray.image = myCorrectAnswerCollecction.append(currentQuestion.id).
+            
+            if currentQuestion.id == 5 {
+                
+            }
+            ImageArrayView.image = allQuestions.list[currentQuestion.id].questionImage
+            //imageArray = allQuestions.list[currentQuestion.id].questionImage
+            if let image = allQuestions.list[currentQuestion.id].questionImage{
+                ImageArrayView.image = image
+               // print("hello :\(String(describing: ImageArray.image))!")
+                
+            }
+            i = i + 1
+            //userDefaults.set("\(ImageArray.image)", forKey: "image")
+            
         } else {
             print("shame")
             wrongAnswerCount = wrongAnswerCount + 1

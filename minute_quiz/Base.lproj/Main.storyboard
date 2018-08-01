@@ -127,11 +127,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0zm-pA-GgS">
+                                <rect key="frame" x="14" y="518" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="rbU-UC-XL8"/>
                     </view>
                     <connections>
+                        <outlet property="collectionImage" destination="0zm-pA-GgS" id="Okg-DW-hwd"/>
                         <outlet property="forGamePlayHighestScoreLabel" destination="fTQ-is-qAD" id="wsq-YT-CmU"/>
                         <outlet property="highestScoreLabel" destination="GUa-84-sTx" id="64e-ma-ZyA"/>
                         <outlet property="nameField" destination="PWu-fW-Pot" id="YYP-2P-T6v"/>
@@ -244,6 +249,10 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e7p-8F-Wzk">
+                                                <rect key="frame" x="8" y="109" width="119" height="118"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
@@ -316,6 +325,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="ImageArrayView" destination="e7p-8F-Wzk" id="7To-oi-fSu"/>
                         <outlet property="correctAnswerCountLabel" destination="v9N-ih-pQq" id="n94-lM-QeS"/>
                         <outlet property="progressBar" destination="Ysc-Dr-thi" id="1Rn-pd-2vc"/>
                         <outlet property="progressLabel" destination="qEY-yY-deF" id="ZaB-rG-M0o"/>

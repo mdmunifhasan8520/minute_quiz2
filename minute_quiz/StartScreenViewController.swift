@@ -15,16 +15,11 @@ class StartScreenViewController: UIViewController {
     @IBOutlet weak var highestScoreLabel: UILabel!
     @IBOutlet weak var forGamePlayHighestScoreLabel: UILabel!
     
+    @IBOutlet weak var collectionImage: UIImageView!
     //create instance of UserDefaults
     let userDefaults = UserDefaults.standard
     
     @IBAction func Start(_ sender: Any) {
-        //print("hello world")
-        //UserDefaults.standard.set(nameField.text, forKey: "name")
-        
-       // UserDefaults.standard.set(highestScoreLabel.text, forKey: "hscore")
-        
-       // UserDefaults.standard.set(forGamePlayHighestScoreLabel.text, forKey: "hscoreforGamePlay")
         
     }
     
@@ -43,6 +38,7 @@ class StartScreenViewController: UIViewController {
         //permanent highest score saved section
         let highestScore = userDefaults.integer(forKey: "hscore")
         let forGameplayhighestscore = userDefaults.integer(forKey: "hscoreforGamePlay")
+        //collectionImage.image = userDefaults.object(forKey: "image") as? UIImage
         
         highestScoreLabel.text = "\(highestScore)"
         forGamePlayHighestScoreLabel.text = "\(forGameplayhighestscore)"
