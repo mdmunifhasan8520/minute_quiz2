@@ -175,7 +175,7 @@ class ViewController: UIViewController {
     
     func checkAnswer() {
         let currentQuestion = allQuestions.list[questionNumber]
-        //var i = 0
+        var i = 0
         if currentQuestion.answer == pickedAnswer {
             print("you got it")
             score = score + 1
