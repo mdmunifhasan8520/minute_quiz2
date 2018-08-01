@@ -12,13 +12,11 @@ class StartScreenViewController: UIViewController {
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var userName: UILabel!
-    
-   
-    
     @IBOutlet weak var highestScoreLabel: UILabel!
-    
-   
     @IBOutlet weak var forGamePlayHighestScoreLabel: UILabel!
+    
+    //create instance of UserDefaults
+    let userDefaults = UserDefaults.standard
     
     @IBAction func Start(_ sender: Any) {
         //print("hello world")
@@ -32,10 +30,10 @@ class StartScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //userDefaults.set(0, forKey: "hscore")
         
-        //forGamePlayHighestScoreLabel.text = String(0)
-    
-        let nameObject = UserDefaults.standard.object(forKey: "name")
+        //for user name
+        let nameObject = userDefaults.object(forKey: "name")
         if let name = nameObject as? String {
             nameField.text = name
             userName.text = nameField.text
@@ -43,10 +41,10 @@ class StartScreenViewController: UIViewController {
         }
         
         //permanent highest score saved section
-        let highestScore = UserDefaults.standard.integer(forKey: "hscore")
-        highestScoreLabel.text = "\(highestScore)"
+        let highestScore = userDefaults.integer(forKey: "hscore")
+        let forGameplayhighestscore = userDefaults.integer(forKey: "hscoreforGamePlay")
         
-        let forGameplayhighestscore = UserDefaults.standard.integer(forKey: "hscoreforGamePlay")
+        highestScoreLabel.text = "\(highestScore)"
         forGamePlayHighestScoreLabel.text = "\(forGameplayhighestscore)"
         
     }

@@ -39,6 +39,8 @@ class ViewController: UIViewController {
     var startInt = 2
     var startTimer = Timer()
     
+    
+    
     //ui elements from the storyboard
     @IBOutlet weak var questionImage: UIImageView!
     @IBOutlet weak var questionLabel: UILabel!
@@ -49,9 +51,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var correctAnswerCountLabel: UILabel!
     @IBOutlet weak var wrongAnswerCountLabel: UILabel!
     
-  
-    //var highestScore: String = ""
-    //var vc = StartScreenViewController()
     
     //create instance of UserDefaults
     let userDefaults = UserDefaults.standard
@@ -61,31 +60,21 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bestScore = UserDefaults.standard.integer(forKey: "hscore")
-        homeBestScore = UserDefaults.standard.integer(forKey: "hscoreforGamePlay")
+        bestScore = userDefaults.integer(forKey: "hscore")
+        homeBestScore = userDefaults.integer(forKey: "hscoreforGamePlay")
+        storedCorrentAnswerArr = userDefaults.object(forKey: "scaarr") as? [Int] ?? [Int]()
+        storedWrongAnswerArr = userDefaults.object(forKey: "swaarr") as? [Int] ?? [Int]()
+        //print("bestScore:\(bestScore)")
         
-        storedCorrentAnswerArr = UserDefaults.standard.object(forKey: "scaarr") as? [Int] ?? [Int]()
-        
-        storedWrongAnswerArr = UserDefaults.standard.object(forKey: "swaarr") as? [Int] ?? [Int]()
-        
-   print("bestScore:\(bestScore)")
         gameStart()
-        
-    
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func Home(_ sender: Any) {
         /*if bestScore > homeBestScore {
             bestScore = homeBestScore
         }
         userDefaults.set("\(bestScore)", forKey: "hscoreforGamePlay")*/
-        
-        
+    
     }
     
     @IBAction func answerPressed(_ sender: AnyObject) {
@@ -94,25 +83,24 @@ class ViewController: UIViewController {
         } else if sender.tag == 2 {
             pickedAnswer = false
         }
-        
         checkAnswer()
         
         //after checking the answer proceed to the next question
         questionNumber = questionNumber + 1
-        
         nextQuestion()
         }
     
-    func updateUI() {
+    func gameStart() {
+        myCorrectAnswerCollecction.removeAll()
+        myWrongAnswerCollecction.removeAll()
+        allQuestions.list.sort { (a, b) -> Bool in (arc4random() % 6) > 3}
         
-        //for correct and wrong anser counter
-        correctAnswerCountLabel.text = "\(correctAnswerCount)"
-        wrongAnswerCountLabel.text = "\(wrongAnswerCount)"
+        //for start the timer
+        timer.text = "\(startInt)"
+        startTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startGameTimer), userInfo: nil, repeats: true)
         
-      
-        scoreLabel.text = "Score: \(score)"
-        progressLabel.text = "\(questionNumber + 1) / 5"
-        progressBar.frame.size.width = (view.frame.size.width / 5) * CGFloat(questionNumber + 1)
+        nextQuestion()
+
     }
     
     func summeryUI() {
@@ -121,13 +109,14 @@ class ViewController: UIViewController {
         wrongAnswerCountLabel.text = "\(wrongAnswerCount)"
         scoreLabel.text = "Score: \(score)"
         
-        print("summary:scor\(score)")
-        print("summaryBest\(bestScore)")
-        
+        //print("summary:scor\(score)")
+        //print("summaryBest\(bestScore)")
         if score > bestScore {
             bestScore = score
             userDefaults.set("\(bestScore)", forKey: "hscore")
         }
+        
+        //for correct and wrong answer collection
         print(myCorrectAnswerCollecction)
         let newCorrectAnswers = myCorrectAnswerCollecction.filter { (id) -> Bool in
             return (storedCorrentAnswerArr.index(of: id) == nil) ? true : false
@@ -135,38 +124,31 @@ class ViewController: UIViewController {
         print(newCorrectAnswers)
         storedCorrentAnswerArr.append(contentsOf: newCorrectAnswers)
         print(storedCorrentAnswerArr)
-        UserDefaults.standard.set(storedCorrentAnswerArr, forKey: "scaarr")
+        userDefaults.set(storedCorrentAnswerArr, forKey: "scaarr")
         
-        /*
-        if bestScore > homeBestScore {
-            homeBestScore = bestScore
-            
-        }
-        userDefaults.set("\(homeBestScore)", forKey: "hscore")*/
-      
-   
     }
     
-    func gameStart() {
-        myCorrectAnswerCollecction.removeAll()
-        myWrongAnswerCollecction.removeAll()
-        allQuestions.list.sort { (a, b) -> Bool in (arc4random() % 6) > 3}
-        timer.text = "\(startInt)"
-        startTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startGameTimer), userInfo: nil, repeats: true)
-        nextQuestion()
-
+    func updateUI() {
+        //for correct and wrong anser counter
+        correctAnswerCountLabel.text = "\(correctAnswerCount)"
+        wrongAnswerCountLabel.text = "\(wrongAnswerCount)"
+        scoreLabel.text = "Score: \(score)"
+        progressLabel.text = "\(questionNumber + 1) / 5"
+        progressBar.frame.size.width = (view.frame.size.width / 5) * CGFloat(questionNumber + 1)
     }
     
     func nextQuestion() {
-        
         if questionNumber <= 4 {
             questionImage.image = allQuestions.list[questionNumber].questionImage
             questionLabel.text = allQuestions.list[questionNumber].questionText
             
             updateUI()
         } else {
+            
             summeryUI()
+            
             startTimer.invalidate()
+            
             //create an AlertViewController object
             let alert = UIAlertController(title: "Awesome", message: "You have finished the quiz", preferredStyle: .alert)
             
@@ -222,6 +204,12 @@ class ViewController: UIViewController {
             
             present(alert, animated: true, completion: nil)
         }
+    }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 }
 
