@@ -250,7 +250,23 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e7p-8F-Wzk">
-                                                <rect key="frame" x="8" y="109" width="119" height="118"/>
+                                                <rect key="frame" x="8" y="109" width="80" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CTZ-dv-hXj">
+                                                <rect key="frame" x="313" y="109" width="80" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jr6-s0-gcI">
+                                                <rect key="frame" x="8" y="204" width="80" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pdi-Mv-4da">
+                                                <rect key="frame" x="313" y="204" width="80" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oRI-Ay-OyN">
+                                                <rect key="frame" x="8" y="308" width="80" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
@@ -326,6 +342,9 @@
                     </view>
                     <connections>
                         <outlet property="ImageArrayView" destination="e7p-8F-Wzk" id="7To-oi-fSu"/>
+                        <outlet property="ImageArrayView2" destination="CTZ-dv-hXj" id="hCS-CY-Npi"/>
+                        <outlet property="ImageArrayView3" destination="jr6-s0-gcI" id="NUn-fx-K7v"/>
+                        <outlet property="ImageArrayView4" destination="pdi-Mv-4da" id="CWZ-vB-GfY"/>
                         <outlet property="correctAnswerCountLabel" destination="v9N-ih-pQq" id="n94-lM-QeS"/>
                         <outlet property="progressBar" destination="Ysc-Dr-thi" id="1Rn-pd-2vc"/>
                         <outlet property="progressLabel" destination="qEY-yY-deF" id="ZaB-rG-M0o"/>

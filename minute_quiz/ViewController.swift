@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     var startInt = 2
     var startTimer = Timer()
     
-    var i = 1
+   
     
     
     //ui elements from the storyboard
@@ -59,7 +59,14 @@ class ViewController: UIViewController {
     
     //@IBOutlet weak var ImageArray: UIImageView!
     @IBOutlet weak var ImageArrayView: UIImageView!
+    @IBOutlet weak var ImageArrayView2: UIImageView!
+    @IBOutlet weak var ImageArrayView3: UIImageView!
+    @IBOutlet weak var ImageArrayView4: UIImageView!
+    @IBOutlet weak var ImageArrayView5: UIImageView!
+    @IBOutlet weak var ImageArrayView6: UIImageView!
+    
     var imageArray: [UIImage] = []
+    //var image: UIImage!
     
     
     
@@ -72,11 +79,12 @@ class ViewController: UIViewController {
         storedCorrentAnswerArr = userDefaults.object(forKey: "scaarr") as? [Int] ?? [Int]()
         storedWrongAnswerArr = userDefaults.object(forKey: "swaarr") as? [Int] ?? [Int]()
         //print("bestScore:\(bestScore)")
+       
+        /*
         for i in 0..<storedCorrentAnswerArr.count {
             imageArray.append(allQuestions.list[i].questionImage)
-        }
+        }*/
         
-        print(imageArray)
         
         gameStart()
     }
@@ -84,8 +92,8 @@ class ViewController: UIViewController {
     @IBAction func Home(_ sender: Any) {
         /*if bestScore > homeBestScore {
             bestScore = homeBestScore
-        }
-        userDefaults.set("\(bestScore)", forKey: "hscoreforGamePlay")*/
+        }*/
+        //userDefaults.set("\(imageArray[0])", forKey: "savedImage")
     
     }
     
@@ -180,26 +188,41 @@ class ViewController: UIViewController {
     
     func checkAnswer() {
         let currentQuestion = allQuestions.list[questionNumber]
-        var i = 0
         if currentQuestion.answer == pickedAnswer {
             print("you got it")
             score = score + 1
             correctAnswerCount = correctAnswerCount + 1
             myCorrectAnswerCollecction.append(currentQuestion.id)
             //ImageArray.image = myCorrectAnswerCollecction.append(currentQuestion.id).
-            
+            /*
             if currentQuestion.id == 5 {
                 
             }
+            
             ImageArrayView.image = allQuestions.list[currentQuestion.id].questionImage
             //imageArray = allQuestions.list[currentQuestion.id].questionImage
             if let image = allQuestions.list[currentQuestion.id].questionImage{
                 ImageArrayView.image = image
                // print("hello :\(String(describing: ImageArray.image))!")
                 
-            }
-            i = i + 1
-            //userDefaults.set("\(ImageArray.image)", forKey: "image")
+            }*/
+            for i in 0..<storedCorrentAnswerArr.count {
+                    imageArray.append(allQuestions.list[i].questionImage)
+                }
+            print(imageArray)
+            /*
+            let image = imageArray[0]
+            let imageData: NSData = UIImagePNGRepresentation(image)! as NSData
+            print(imageData)
+ 
+            userDefaults.set(imageData, forKey: "savedImage")*/
+            
+            if score == 1 {ImageArrayView.image = imageArray[0]}
+            if score == 2 {ImageArrayView2.image = imageArray[1]}
+            if score == 3 {ImageArrayView3.image = imageArray[2]}
+            if score == 4 {ImageArrayView4.image = imageArray[3]}
+            if score == 5 {ImageArrayView4.image = imageArray[4]}
+           
             
         } else {
             print("shame")
