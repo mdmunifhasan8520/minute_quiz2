@@ -57,6 +57,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        allQuestions.list.sort { (a, b) -> Bool in
+            return (arc4random() % 6) > 3
+        }
         //highestScoreLabel.text = "Best Score:\(bestScore)"
        
         
