@@ -17,17 +17,24 @@ class StartScreenViewController: UIViewController {
     
     @IBOutlet weak var highestScoreLabel: UILabel!
     
+   
+    @IBOutlet weak var forGamePlayHighestScoreLabel: UILabel!
     
     @IBAction func Start(_ sender: Any) {
         //print("hello world")
-        UserDefaults.standard.set(nameField.text, forKey: "name")
-        UserDefaults.standard.set(highestScoreLabel.text, forKey: "hscore")
+        //UserDefaults.standard.set(nameField.text, forKey: "name")
+        
+       // UserDefaults.standard.set(highestScoreLabel.text, forKey: "hscore")
+        
+       // UserDefaults.standard.set(forGamePlayHighestScoreLabel.text, forKey: "hscoreforGamePlay")
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        //forGamePlayHighestScoreLabel.text = String(0)
+    
         let nameObject = UserDefaults.standard.object(forKey: "name")
         if let name = nameObject as? String {
             nameField.text = name
@@ -35,11 +42,19 @@ class StartScreenViewController: UIViewController {
             //print(name)
         }
         
-        let highestScoreLabelObject = UserDefaults.standard.object(forKey: "hscore")
-        if let highestScore = highestScoreLabelObject as? String {
-            highestScoreLabel.text = highestScore
+        //permanent highest score saved section
+        let highestScoreLabelObject = UserDefaults.standard.integer(forKey: "hscore")
+        if let highestScore = highestScoreLabelObject as? Int {
+            highestScoreLabel.text = "\(highestScore)"
             
         }
+        let forGameplayhighestscoreObject = UserDefaults.standard.integer(forKey: "hscoreforGamePlay")
+        if let forGameplayhighestscore = forGameplayhighestscoreObject as? Int {
+            forGamePlayHighestScoreLabel.text = "\(forGameplayhighestscore)"
+            
+            
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

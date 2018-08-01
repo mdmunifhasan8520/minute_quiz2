@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     var questionNumber : Int = 0
     
     //for track the score
+    var homeBestScore: Int = 0
     var bestScore: Int = 0
     var score : Int = 0
     
@@ -25,9 +26,14 @@ class ViewController: UIViewController {
     var correctAnswerCount : Int = 0
     var wrongAnswerCount : Int = 0
     
+    //correct answer collection
+    var myCorrectAnswerCollecction = [String]()
+    var myWrongAnswerCollecction = [String]()
+    
+    //@IBOutlet weak var highestScoreLabel: UILabel!
     
     //for the Timer
-    var startInt = 5
+    var startInt = 2
     var startTimer = Timer()
     
     //ui elements from the storyboard
@@ -40,22 +46,52 @@ class ViewController: UIViewController {
     @IBOutlet weak var correctAnswerCountLabel: UILabel!
     @IBOutlet weak var wrongAnswerCountLabel: UILabel!
     
-    @IBOutlet weak var HighestScore: UILabel!
+  
+    //var highestScore: String = ""
+    //var vc = StartScreenViewController()
+    
+    //create instance of UserDefaults
+    let userDefaults = UserDefaults.standard
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        HighestScore.text = "\(bestScore)"
-
+        //highestScoreLabel.text = "Best Score:\(bestScore)"
+       
+        
+        
+        let dataObject = UserDefaults.standard.integer(forKey: "hscore")
+        let data2Object = UserDefaults.standard.integer(forKey: "hscoreforGamePlay")
+        if let data = dataObject as? Int {
+            bestScore = data
+            print("bestScore:\(bestScore)")
+        }
+       
+        if let data2 = data2Object as? Int {
+            homeBestScore = data2
+            print("homeBestScore:\(homeBestScore)")
+        }
+   print("bestScore:\(bestScore)")
         gameStart()
         
+    
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-  
+    
+    @IBAction func Home(_ sender: Any) {
+        /*if bestScore > homeBestScore {
+            bestScore = homeBestScore
+        }
+        userDefaults.set("\(bestScore)", forKey: "hscoreforGamePlay")*/
+        
+        
+    }
+    
     @IBAction func answerPressed(_ sender: AnyObject) {
         if (sender as AnyObject).tag == 1 {
             pickedAnswer = true
@@ -87,36 +123,22 @@ class ViewController: UIViewController {
         //for correct and wrong anser counter
         correctAnswerCountLabel.text = "\(correctAnswerCount)"
         wrongAnswerCountLabel.text = "\(wrongAnswerCount)"
-        
-        //scoreLabel.text = String(score)
         scoreLabel.text = "Score: \(score)"
         
-        if score >= bestScore {
+        print("summary:scor\(score)")
+        print("summaryBest\(bestScore)")
+        
+        if score > bestScore {
             bestScore = score
+            userDefaults.set("\(bestScore)", forKey: "hscore")
         }
-    
-        HighestScore.text = "Best Score:\(bestScore)"
-        UserDefaults.standard.set("\(bestScore)", forKey: "hscore")
-        //permanent data storage
         /*
-         UserDefaults.standard.set("hello:\(bestScore)", forKey: "hscore")
-         let highScoreObject = UserDefaults.standard.object(forKey: "hscore")
-         if let highScore = highScoreObject as? String {
-         print(highScore)
-         }
-         
-         
-        UserDefaults.standard.set("hello:\(bestScore)", forKey: "name")
-        let nameObject = UserDefaults.standard.object(forKey: "name")
-        if let name = nameObject as? String {
-             print(name)
+        if bestScore > homeBestScore {
+            homeBestScore = bestScore
+            
         }
-        let arr = [1, 2, 3, 4]
-        UserDefaults.standard.set(arr, forKey: "array")
-        let arrayObject = UserDefaults.standard.object(forKey: "array")
-        if let array = arrayObject as? NSArray {
-            print(array)
-        }*/
+        userDefaults.set("\(homeBestScore)", forKey: "hscore")*/
+      
    
     }
     
@@ -130,7 +152,6 @@ class ViewController: UIViewController {
     func nextQuestion() {
         
         if questionNumber <= 4 {
-            
             questionImage.image = allQuestions.list[questionNumber].questionImage
             questionLabel.text = allQuestions.list[questionNumber].questionText
             
@@ -163,6 +184,7 @@ class ViewController: UIViewController {
         } else {
             print("shame")
             wrongAnswerCount = wrongAnswerCount + 1
+            
         }
     }
     
@@ -172,6 +194,7 @@ class ViewController: UIViewController {
         score = 0
         questionNumber = 0
         startInt = 30
+        
         gameStart()
     }
     
