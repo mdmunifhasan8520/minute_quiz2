@@ -72,6 +72,11 @@ class ViewController: UIViewController {
         storedCorrentAnswerArr = userDefaults.object(forKey: "scaarr") as? [Int] ?? [Int]()
         storedWrongAnswerArr = userDefaults.object(forKey: "swaarr") as? [Int] ?? [Int]()
         //print("bestScore:\(bestScore)")
+        for i in 0..<storedCorrentAnswerArr.count {
+            imageArray.append(allQuestions.list[i].questionImage)
+        }
+        
+        print(imageArray)
         
         gameStart()
     }
