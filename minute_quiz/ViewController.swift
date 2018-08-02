@@ -206,6 +206,7 @@ class ViewController: UIViewController {
                // print("hello :\(String(describing: ImageArray.image))!")
                 
             }*/
+            
             for i in 0..<storedCorrentAnswerArr.count {
                     imageArray.append(allQuestions.list[i].questionImage)
                 }
@@ -216,14 +217,14 @@ class ViewController: UIViewController {
             print(imageData)
  
             userDefaults.set(imageData, forKey: "savedImage")*/
-            
+            /*
             if score == 1 {ImageArrayView.image = imageArray[0]}
             if score == 2 {ImageArrayView2.image = imageArray[1]}
             if score == 3 {ImageArrayView3.image = imageArray[2]}
             if score == 4 {ImageArrayView4.image = imageArray[3]}
             if score == 5 {ImageArrayView4.image = imageArray[4]}
            
-            
+            */
         } else {
             print("shame")
             wrongAnswerCount = wrongAnswerCount + 1

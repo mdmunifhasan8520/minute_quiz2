@@ -29,6 +29,7 @@ class StartScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //userDefaults.set(0, forKey: "hscore")
+        //userDefaults.set([], forKey: "scaarr")
 
         //for user name
         let nameObject = userDefaults.object(forKey: "name")
