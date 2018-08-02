@@ -396,7 +396,7 @@
                         <outlet property="scoreLabel" destination="0E6-ck-t2g" id="62Z-9D-IZD"/>
                         <outlet property="timer" destination="4jG-06-Zgv" id="eVi-is-HBQ"/>
                         <outlet property="wrongAnswerCountLabel" destination="Yty-bw-xY6" id="A26-vy-qBD"/>
-                        <segue destination="LBt-zh-C8r" kind="show" id="QQb-Xo-ghi"/>
+                        <segue destination="LBt-zh-C8r" kind="show" identifier="StratScreen" id="QQb-Xo-ghi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
