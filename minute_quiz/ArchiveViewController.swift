@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ArchiveViewController: UIViewController {
+class ArchiveViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    var playerName = ["maradona","pele","soacrates","roberto Cralos","beckham"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,14 +24,19 @@ class ArchiveViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return playerName.count
     }
-    */
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
+        
+        cell.myLabel.text = playerName[indexPath.item]
+        
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.item)
+    }
 
 }
