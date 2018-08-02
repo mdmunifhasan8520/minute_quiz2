@@ -10,12 +10,22 @@ import UIKit
 
 class ArchiveViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate {
     
-    var playerName = ["maradona","pele","soacrates","roberto Cralos","beckham"]
+    
+    var vc = ViewController()
+    
+     let playerImage: [UIImage] = [UIImage(named:"Socrates.png")!]
+    var playerName = ["maradona"]
+    
+   // var vc = ViewController()
+    
+   // var myImage: [UIImage] = []
+    
+    //var myimage = vc.imageArray
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        //myImage = vc.allQuestions.list[playerName].questionImage
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,7 +42,11 @@ class ArchiveViewController: UIViewController,UICollectionViewDataSource, UIColl
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
         
         cell.myLabel.text = playerName[indexPath.item]
-        
+        //cell.myImageView.image = playerImage[indexPath.item]
+        //cell.myImageView.image =
+        //print(myi)
+        //cell.myImageView.image = myImage[indexPath.item]
+        cell.myImageView.image = playerImage[indexPath.item]
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
