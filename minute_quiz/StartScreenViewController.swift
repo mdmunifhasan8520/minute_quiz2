@@ -15,7 +15,8 @@ class StartScreenViewController: UIViewController {
     @IBOutlet weak var highestScoreLabel: UILabel!
     @IBOutlet weak var forGamePlayHighestScoreLabel: UILabel!
     
-    @IBOutlet weak var collectionImage: UIImageView!
+    @IBOutlet weak var settingsButtonLabel: UIButton!
+  
     
     //create instance of UserDefaults
     let userDefaults = UserDefaults.standard
@@ -23,7 +24,10 @@ class StartScreenViewController: UIViewController {
     
     //var collection: [Array<Any>]
     @IBAction func Start(_ sender: Any) {
-        
+    }
+    
+    @IBAction func Settings(_ sender: Any) {
+        performSegue(withIdentifier: "settingsSegueID", sender: nil)
     }
     
     override func viewDidLoad() {
@@ -42,13 +46,13 @@ class StartScreenViewController: UIViewController {
         //permanent highest score saved section
         let highestScore = userDefaults.integer(forKey: "hscore")
         let forGameplayhighestscore = userDefaults.integer(forKey: "hscoreforGamePlay")
-        //collectionImage.image = userDefaults.object(forKey: "image") as? UIImage
-        
         highestScoreLabel.text = "\(highestScore)"
         forGamePlayHighestScoreLabel.text = "\(forGameplayhighestscore)"
         
+        //collectionImage.image = userDefaults.object(forKey: "image") as? UIImage
         //let data = userDefaults.object(forKey: "savedImage") as! NSData
         //collectionImage.image = UIImage(data: data as Data)
+        
     }
 
 }

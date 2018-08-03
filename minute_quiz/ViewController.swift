@@ -72,20 +72,17 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //imageArray = ImageArray
-        
-        bestScore = userDefaults.integer(forKey: "hscore")
-        homeBestScore = userDefaults.integer(forKey: "hscoreforGamePlay")
-        storedCorrentAnswerArr = userDefaults.object(forKey: "scaarr") as? [Int] ?? [Int]()
-        storedWrongAnswerArr = userDefaults.object(forKey: "swaarr") as? [Int] ?? [Int]()
-        //print("bestScore:\(bestScore)")
-       
         /*
         for i in 0..<storedCorrentAnswerArr.count {
             imageArray.append(allQuestions.list[i].questionImage)
         }*/
         
+        bestScore = userDefaults.integer(forKey: "hscore")
+        homeBestScore = userDefaults.integer(forKey: "hscoreforGamePlay")
+        storedCorrentAnswerArr = userDefaults.object(forKey: "scaarr") as? [Int] ?? [Int]()
+        storedWrongAnswerArr = userDefaults.object(forKey: "swaarr") as? [Int] ?? [Int]()
         
+        //print("bestScore:\(bestScore)")
         gameStart()
     }
 
@@ -137,19 +134,16 @@ class ViewController: UIViewController {
         }
         
         //for correct and wrong answer collection
-        print(myCorrectAnswerCollecction)
         let newCorrectAnswers = myCorrectAnswerCollecction.filter { (id) -> Bool in
             return (storedCorrentAnswerArr.index(of: id) == nil) ? true : false
         }
-        print(newCorrectAnswers)
         storedCorrentAnswerArr.append(contentsOf: newCorrectAnswers)
-        print(storedCorrentAnswerArr)
         userDefaults.set(storedCorrentAnswerArr, forKey: "scaarr")
         
-        
-        //ImageArray.image = allQuestions.list[currentQuestion.id].questionImage
-        
-    }
+        //print(myCorrectAnswerCollecction)
+        //print(newCorrectAnswers)
+        //print(storedCorrentAnswerArr)
+   }
     
     func updateUI() {
         //for correct and wrong anser counter
@@ -193,38 +187,7 @@ class ViewController: UIViewController {
             score = score + 1
             correctAnswerCount = correctAnswerCount + 1
             myCorrectAnswerCollecction.append(currentQuestion.id)
-            //ImageArray.image = myCorrectAnswerCollecction.append(currentQuestion.id).
-            /*
-            if currentQuestion.id == 5 {
-                
-            }
-            
-            ImageArrayView.image = allQuestions.list[currentQuestion.id].questionImage
-            //imageArray = allQuestions.list[currentQuestion.id].questionImage
-            if let image = allQuestions.list[currentQuestion.id].questionImage{
-                ImageArrayView.image = image
-               // print("hello :\(String(describing: ImageArray.image))!")
-                
-            }*/
-            
-            for i in 0..<storedCorrentAnswerArr.count {
-                    imageArray.append(allQuestions.list[i].questionImage)
-                }
-            print(imageArray)
-            /*
-            let image = imageArray[0]
-            let imageData: NSData = UIImagePNGRepresentation(image)! as NSData
-            print(imageData)
- 
-            userDefaults.set(imageData, forKey: "savedImage")*/
-            /*
-            if score == 1 {ImageArrayView.image = imageArray[0]}
-            if score == 2 {ImageArrayView2.image = imageArray[1]}
-            if score == 3 {ImageArrayView3.image = imageArray[2]}
-            if score == 4 {ImageArrayView4.image = imageArray[3]}
-            if score == 5 {ImageArrayView4.image = imageArray[4]}
-           
-            */
+  
         } else {
             print("shame")
             wrongAnswerCount = wrongAnswerCount + 1
@@ -248,6 +211,7 @@ class ViewController: UIViewController {
         
         if startInt == 0 {
             startTimer.invalidate()
+            summeryUI()
             let alert = UIAlertController(title: "Times Up", message: "could not answer all question", preferredStyle: .alert)
             
             let restartAction = UIAlertAction(title: "Restart", style: .default, handler:
@@ -258,12 +222,6 @@ class ViewController: UIViewController {
             
             present(alert, animated: true, completion: nil)
         }
-    }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 
