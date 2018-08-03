@@ -19,6 +19,7 @@
 		FACA2609210E8DDA0002CF7C /* ArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA2608210E8DDA0002CF7C /* ArchiveViewController.swift */; };
 		FAE932D4211359D300CA5517 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE932D3211359D300CA5517 /* CollectionViewCell.swift */; };
 		FAE932D62113D47B00CA5517 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE932D52113D47B00CA5517 /* SettingsViewController.swift */; };
+		FAE932D821141D8800CA5517 /* ArchiveDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE932D721141D8800CA5517 /* ArchiveDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		FACA2608210E8DDA0002CF7C /* ArchiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewController.swift; sourceTree = "<group>"; };
 		FAE932D3211359D300CA5517 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		FAE932D52113D47B00CA5517 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		FAE932D721141D8800CA5517 /* ArchiveDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,9 +84,10 @@
 			children = (
 				FACA2604210E46DD0002CF7C /* StartScreenViewController.swift */,
 				FA89845C210CEC2300AA94AF /* ViewController.swift */,
+				FAE932D52113D47B00CA5517 /* SettingsViewController.swift */,
 				FACA2608210E8DDA0002CF7C /* ArchiveViewController.swift */,
 				FAE932D3211359D300CA5517 /* CollectionViewCell.swift */,
-				FAE932D52113D47B00CA5517 /* SettingsViewController.swift */,
+				FAE932D721141D8800CA5517 /* ArchiveDetailsViewController.swift */,
 				FA89845A210CEC2300AA94AF /* AppDelegate.swift */,
 			);
 			name = Controller;
@@ -192,6 +195,7 @@
 				FA1C747E210D03DF00ED639D /* Question.swift in Sources */,
 				FACA2609210E8DDA0002CF7C /* ArchiveViewController.swift in Sources */,
 				FA1C7480210D0D3C00ED639D /* QuestionBank.swift in Sources */,
+				FAE932D821141D8800CA5517 /* ArchiveDetailsViewController.swift in Sources */,
 				FAE932D4211359D300CA5517 /* CollectionViewCell.swift in Sources */,
 				FA89845D210CEC2300AA94AF /* ViewController.swift in Sources */,
 				FA89845B210CEC2300AA94AF /* AppDelegate.swift in Sources */,

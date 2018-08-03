@@ -86,11 +86,12 @@ class ViewController: UIViewController {
         gameStart()
     }
 
-    @IBAction func Home(_ sender: Any) {
+    @IBAction func Home(_ sender: AnyObject) {
         /*if bestScore > homeBestScore {
             bestScore = homeBestScore
         }*/
         //userDefaults.set("\(imageArray[0])", forKey: "savedImage")
+        //UserDefaults.standard.set(use.text, forKey: "name")
     
     }
     
@@ -138,7 +139,9 @@ class ViewController: UIViewController {
             return (storedCorrentAnswerArr.index(of: id) == nil) ? true : false
         }
         storedCorrentAnswerArr.append(contentsOf: newCorrectAnswers)
-        userDefaults.set(storedCorrentAnswerArr, forKey: "scaarr")
+        //storedCorrentAnswerArr.sorted()
+        userDefaults.set(storedCorrentAnswerArr.sorted(), forKey: "scaarr")
+        print("sorted:\(storedCorrentAnswerArr.sorted())")
         
         //print(myCorrectAnswerCollecction)
         //print(newCorrectAnswers)
@@ -200,7 +203,7 @@ class ViewController: UIViewController {
         correctAnswerCount = 0
         score = 0
         questionNumber = 0
-        startInt = 30
+        startInt = 3000
         
         gameStart()
     }

@@ -13,7 +13,7 @@ class ArchiveViewController: UIViewController,UICollectionViewDataSource, UIColl
     
     var vc = QuestionBank()
     var playerImage: [UIImage] = []
-    //var playerName = ["maradona","pele","sdas","dad","asd","afa","adfdaf"]
+    var playerName = [""]
     var correctAnswerArray: [Int] = []
 
     override func viewDidLoad() {
@@ -25,7 +25,11 @@ class ArchiveViewController: UIViewController,UICollectionViewDataSource, UIColl
             let correctQuestion = vc.list.first { (question) -> Bool in
                 return questionImageid == question.id
             }
+            let correctQuestion2 = vc.list.first { (question) -> Bool in
+                return questionImageid == question.id
+            }
             playerImage.append((correctQuestion?.questionImage)!)
+            playerName.append((correctQuestion2?.questionText)!)
         }
 
     }
@@ -38,7 +42,7 @@ class ArchiveViewController: UIViewController,UICollectionViewDataSource, UIColl
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
         cell.myImageView.image = playerImage[indexPath.item]
         //cell.myLabel.text = playerName[indexPath.item]
-        
+        cell.myLabel.text = playerName[indexPath.item]
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
