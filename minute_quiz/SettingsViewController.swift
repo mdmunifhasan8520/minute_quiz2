@@ -11,11 +11,16 @@ import UIKit
 class SettingsViewController: UIViewController {
     
     @IBAction func RESET(_ sender: Any) {
-        UserDefaults.standard.setValue(0, forKey: "scaarr")
-        UserDefaults.standard.setValue(0, forKey: "hscoreforGamePlay")
-        //print(correctAnswerArray)
+        
+        UserDefaults.standard.set(0, forKey: "hscore")
+        UserDefaults.standard.set([], forKey: "scaarr")
+        print("hello")
     }
 
+    @IBAction func backToHomeScreen(_ sender: Any) {
+         //print("settings:\(highestScore)")
+        print("back to home")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

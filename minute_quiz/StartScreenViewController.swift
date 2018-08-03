@@ -34,7 +34,7 @@ class StartScreenViewController: UIViewController {
         super.viewDidLoad()
         //userDefaults.set(0, forKey: "hscore")
         //userDefaults.set([], forKey: "scaarr")
-
+        
         //for user name
         let nameObject = userDefaults.object(forKey: "name")
         if let name = nameObject as? String {
@@ -43,12 +43,14 @@ class StartScreenViewController: UIViewController {
             //print(name)
         }
         
+        
         //permanent highest score saved section
         let highestScore = userDefaults.integer(forKey: "hscore")
         let forGameplayhighestscore = userDefaults.integer(forKey: "hscoreforGamePlay")
         highestScoreLabel.text = "\(highestScore)"
         forGamePlayHighestScoreLabel.text = "\(forGameplayhighestscore)"
-        
+       
+         print("start:\(highestScore)")
         //collectionImage.image = userDefaults.object(forKey: "image") as? UIImage
         //let data = userDefaults.object(forKey: "savedImage") as! NSData
         //collectionImage.image = UIImage(data: data as Data)

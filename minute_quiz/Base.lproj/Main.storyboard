@@ -219,10 +219,10 @@
             </objects>
             <point key="canvasLocation" x="-790" y="999"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="Lkf-Uu-GUU">
             <objects>
-                <viewController id="4JN-3f-sfO" sceneMemberID="viewController">
+                <viewController id="4JN-3f-sfO" customClass="SettingsViewController" customModule="minute_quiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l9G-20-nHY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -237,6 +237,7 @@
                                 </state>
                                 <connections>
                                     <action selector="RESET:" destination="uFe-P8-559" eventType="touchUpInside" id="OE2-sN-Ksz"/>
+                                    <action selector="RESET:" destination="4JN-3f-sfO" eventType="touchUpInside" id="Qdp-RP-kcr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SWd-s9-gb4">
@@ -248,7 +249,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="jh5-vs-F8m" kind="show" id="vhg-cE-EZx"/>
+                                    <action selector="backToHomeScreen:" destination="uFe-P8-559" eventType="touchUpInside" id="XHS-QQ-oUd"/>
+                                    <segue destination="jh5-vs-F8m" kind="show" id="27B-hR-YiO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -451,7 +453,7 @@
         <image name="Diego Maradona_A" width="256" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EaI-tN-dhs"/>
-        <segue reference="vhg-cE-EZx"/>
+        <segue reference="QQb-Xo-ghi"/>
+        <segue reference="27B-hR-YiO"/>
     </inferredMetricsTieBreakers>
 </document>
