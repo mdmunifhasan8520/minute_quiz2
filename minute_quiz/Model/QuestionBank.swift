@@ -15,15 +15,22 @@ class QuestionBank {
     
     init() {
         //creating a quiz item and appending it to the list
-        let item = Question(id: 1, image: UIImage(named: "Diego Maradona_A")!, text: "Is It Madona?", correctAnswer: false)
+        let item = Question(id: 1, image: UIImage(named: "Diego Maradona_A")!, text: "Is It Madona?", correctAnswer: false, character: "Maradona")
         
         //add the Questin to the list of question
         list.append(item)
         
-        list.append(Question(id: 2, image: UIImage(named: "pele_A")!, text: "Here is pele...", correctAnswer: true))
-        list.append(Question(id: 3, image: UIImage(named: "David Beckham_A")!, text: "David Bhuiya!...", correctAnswer: false))
-        list.append(Question(id: 4, image: UIImage(named: "Socrates_A")!, text: "Yes Socrates", correctAnswer: true))
-        list.append(Question(id: 5, image: UIImage(named: "Roberto Carlos_A")!, text: "I think ronaldo?", correctAnswer: false))
+        list.append(Question(id: 2, image: UIImage(named: "pele_A")!, text: "Here is pele...", correctAnswer: true,character: "Pele"))
+        list.append(Question(id: 3, image: UIImage(named: "David Beckham_A")!, text: "David Bhuiya!...", correctAnswer: false,character: "Beckham"))
+        list.append(Question(id: 4, image: UIImage(named: "Socrates_A")!, text: "Yes Socrates", correctAnswer: true,character: "Socrates"))
+        list.append(Question(id: 5, image: UIImage(named: "Roberto Carlos_A")!, text: "I think ronaldo?", correctAnswer: false,character: "Roberto Carlos"))
+        list.append(Question(id: 6, image: UIImage(named: "Garrincha_A")!, text: "I think ronaldo?", correctAnswer: false,character: "Roberto Carlos"))
+        list.append(Question(id: 7, image: UIImage(named: "Gabriel Batistuta")!, text: "I think ronaldo?", correctAnswer: false,character: "Roberto Carlos"))
+        list.append(Question(id: 8, image: UIImage(named: "Roberto Carlos_A")!, text: "I think ronaldo?", correctAnswer: false,character: "Roberto Carlos"))
+        list.append(Question(id: 9, image: UIImage(named: "Roberto Carlos")!, text: "I think ronaldo?", correctAnswer: false,character: "Roberto Carlos"))
+        list.append(Question(id: 10, image: UIImage(named: "pele")!, text: "I think ronaldo?", correctAnswer: false,character: "Roberto Carlos"))
+        list.append(Question(id: 11, image: UIImage(named: "Socrates")!, text: "I think ronaldo?", correctAnswer: false,character: "Roberto Carlos"))
+        list.append(Question(id: 12, image: UIImage(named: "Diego Maradona")!, text: "I think ronaldo?", correctAnswer: false,character: "Roberto Carlos"))
         
         
         

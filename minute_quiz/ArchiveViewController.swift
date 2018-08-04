@@ -13,7 +13,7 @@ class ArchiveViewController: UIViewController,UICollectionViewDataSource, UIColl
     
     var vc = QuestionBank()
     var playerImage: [UIImage] = []
-    var playerName = [""]
+    var playerName: [String] = []
     var correctAnswerArray: [Int] = []
 
     override func viewDidLoad() {
@@ -29,7 +29,7 @@ class ArchiveViewController: UIViewController,UICollectionViewDataSource, UIColl
                 return questionImageid == question.id
             }
             playerImage.append((correctQuestion?.questionImage)!)
-            playerName.append((correctQuestion2?.questionText)!)
+            playerName.append((correctQuestion2?.character)!)
         }
 
     }

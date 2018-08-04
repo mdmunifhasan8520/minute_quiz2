@@ -25,8 +25,11 @@ class StartScreenViewController: UIViewController {
   
     @IBAction func Start(_ sender: AnyObject) {
         userNameLabel.text = nameField.text
+        UserDefaults.standard.set(userNameLabel.text, forKey: "name")
         UserDefaults.standard.set(nameField.text, forKey: "name")
-        nameField.text = ""
+        //nameField.text = ""
+        
+        
     }
     
     @IBAction func Settings(_ sender: Any) {
@@ -44,6 +47,13 @@ class StartScreenViewController: UIViewController {
         //collectionImage.image = userDefaults.object(forKey: "image") as? UIImage
         //let data = userDefaults.object(forKey: "savedImage") as! NSData
         //collectionImage.image = UIImage(data: data as Data)
+        if let s = UserDefaults.standard.object(forKey: "name") as? String
+        {
+            userNameLabel.text = s
+            nameField.text = s
+            
+        }
+
     }
   
     

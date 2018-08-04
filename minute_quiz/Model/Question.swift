@@ -14,13 +14,15 @@ class Question {
     let questionImage: UIImage!
     let questionText: String
     let answer: Bool
+    let character: String
     
     
     //initialize properties
-    init(id: Int, image: UIImage, text:String, correctAnswer: Bool) {
+    init(id: Int, image: UIImage, text:String, correctAnswer: Bool, character: String) {
         self.id = id
         questionImage = image
         questionText = text
         answer = correctAnswer
+        self.character = character
     }
 }

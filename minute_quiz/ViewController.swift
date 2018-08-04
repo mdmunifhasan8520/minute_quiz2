@@ -158,7 +158,7 @@ class ViewController: UIViewController {
     }
     
     func nextQuestion() {
-        if questionNumber <= 4 {
+        if questionNumber <= allQuestions.list.count - 1{
             questionImage.image = allQuestions.list[questionNumber].questionImage
             questionLabel.text = allQuestions.list[questionNumber].questionText
             
