@@ -8,14 +8,16 @@
 
 import UIKit
 
-class ArchiveViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate {
-    
+class ArchiveViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var vc = QuestionBank()
     var playerImage: [UIImage] = []
     var playerName: [String] = []
     var correctAnswerArray: [Int] = []
-
+    var correctQuestion: [Int] = []
+    //var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
       
@@ -47,6 +49,35 @@ class ArchiveViewController: UIViewController,UICollectionViewDataSource, UIColl
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.item)
+        //let desVc = [UIImage]()
+        //let mainStoryboard: UIStoryboard = UIStoryboard(name:"main", bundle: nil)
+        let desVc = storyboard?.instantiateViewController(withIdentifier: "ArchiveDetailsViewController") as! ArchiveDetailsViewController
+        //desVc.image = playerImage.append((playerImage.index(of: UIImage))
+       desVc.image = playerImage[indexPath.item]
+        //let cell = collectionView.cellForItem(at: indexPath)
+        //cell?.backgroundColor = UIColor.red
+       // print(playerImage[indexPath.item])
+        
+        print(desVc)
+      
+        
+        
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        print("prep")
+        // print(segue)
+        if segue.destination is ArchiveDetailsViewController
+        {
+            let vc = segue.destination as? ArchiveDetailsViewController
+            print(collectionView)
+            let index = collectionView.indexPath(for: sender as! UICollectionViewCell)
+            vc?.image = self.playerImage[(index?.item)!]
+            //self.vc
+           // print(sender)
+        }
     }
 
 }

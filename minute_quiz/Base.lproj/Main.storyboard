@@ -150,7 +150,7 @@
         <!--Archive View Controller-->
         <scene sceneID="6eU-Ob-YMm">
             <objects>
-                <viewController id="LBt-zh-C8r" customClass="ArchiveViewController" customModule="minute_quiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArchiveViewController" id="LBt-zh-C8r" customClass="ArchiveViewController" customModule="minute_quiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vp5-Y7-VtX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -177,7 +177,7 @@
                                                     <rect key="frame" x="10" y="10" width="126" height="107"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6Y-ZM-vy2">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6Y-ZM-vy2">
                                                     <rect key="frame" x="9" y="125" width="134" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -188,6 +188,7 @@
                                         <connections>
                                             <outlet property="myImageView" destination="u3L-VE-t2P" id="AFb-UM-OmR"/>
                                             <outlet property="myLabel" destination="k6Y-ZM-vy2" id="74l-xr-dfd"/>
+                                            <segue destination="3U4-v8-chL" kind="show" id="rqK-Cy-aU5"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -212,6 +213,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="vAs-Eu-0kG"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="oUN-xe-FO3" id="TCd-Ga-4sF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YHs-Xp-Fxx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -220,32 +224,47 @@
         <!--Archive Details View Controller-->
         <scene sceneID="K2u-S0-jL2">
             <objects>
-                <viewController storyboardIdentifier="ArchiveDetails" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3U4-v8-chL" customClass="ArchiveDetailsViewController" customModule="minute_quiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArchiveDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3U4-v8-chL" customClass="ArchiveDetailsViewController" customModule="minute_quiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BCV-Gu-Mte">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dr2-26-BHp">
-                                <rect key="frame" x="87" y="67" width="240" height="167"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vib-rs-LPY">
+                                <rect key="frame" x="20" y="298" width="374" height="351"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vib-rs-LPY">
-                                <rect key="frame" x="20" y="255" width="374" height="348"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJY-oF-1YP">
+                                <rect key="frame" x="20" y="672" width="129" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.105534263" green="0.036613680420000003" blue="0.030278839169999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="BACK" backgroundImage="Default.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="backToHomeScreen:" destination="uFe-P8-559" eventType="touchUpInside" id="wdn-bI-zjD"/>
+                                    <segue destination="LBt-zh-C8r" kind="show" id="2mn-xR-Zyr"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Diego Maradona" translatesAutoresizingMaskIntoConstraints="NO" id="dr2-26-BHp">
+                                <rect key="frame" x="80" y="65" width="255" height="214"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="As0-hj-iND"/>
                     </view>
+                    <connections>
+                        <outlet property="imgView" destination="dr2-26-BHp" id="ou5-YM-j7G"/>
+                        <outlet property="shortnoteLabel" destination="Vib-rs-LPY" id="sHT-6M-Nm5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Goc-79-NbB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-849.27536231884062" y="1695.6521739130435"/>
+            <point key="canvasLocation" x="-1036" y="1807"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="Lkf-Uu-GUU">
@@ -481,7 +500,8 @@
         <image name="Diego Maradona_A" width="256" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EaI-tN-dhs"/>
+        <segue reference="rqK-Cy-aU5"/>
+        <segue reference="2mn-xR-Zyr"/>
         <segue reference="L4v-IV-NST"/>
     </inferredMetricsTieBreakers>
 </document>

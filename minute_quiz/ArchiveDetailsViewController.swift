@@ -9,11 +9,18 @@
 import UIKit
 
 class ArchiveDetailsViewController: UIViewController {
-
+    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var shortnoteLabel: UITextView!
+    
+    var image = UIImage ()
+    var shortnote = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        imgView.image = image
         // Do any additional setup after loading the view.
+        print("hello")
+        print(image)
     }
 
     override func didReceiveMemoryWarning() {
