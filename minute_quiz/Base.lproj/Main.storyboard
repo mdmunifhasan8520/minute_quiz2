@@ -377,30 +377,14 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e7p-8F-Wzk">
-                                                <rect key="frame" x="8" y="109" width="80" height="70"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CTZ-dv-hXj">
-                                                <rect key="frame" x="313" y="109" width="80" height="70"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jr6-s0-gcI">
-                                                <rect key="frame" x="8" y="204" width="80" height="70"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pdi-Mv-4da">
-                                                <rect key="frame" x="313" y="204" width="80" height="70"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oRI-Ay-OyN">
-                                                <rect key="frame" x="8" y="308" width="80" height="70"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Diego Maradona_A" translatesAutoresizingMaskIntoConstraints="NO" id="Wdg-4v-OV0" userLabel="Question Image">
                                                 <rect key="frame" x="96" y="111" width="240" height="183"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hwj-ft-CnP">
+                                                <rect key="frame" x="96" y="81" width="68" height="64"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -474,12 +458,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="ImageArrayView" destination="e7p-8F-Wzk" id="7To-oi-fSu"/>
-                        <outlet property="ImageArrayView2" destination="CTZ-dv-hXj" id="hCS-CY-Npi"/>
-                        <outlet property="ImageArrayView3" destination="jr6-s0-gcI" id="NUn-fx-K7v"/>
-                        <outlet property="ImageArrayView4" destination="pdi-Mv-4da" id="CWZ-vB-GfY"/>
                         <outlet property="correctAnswerCountLabel" destination="v9N-ih-pQq" id="n94-lM-QeS"/>
                         <outlet property="progressBar" destination="Ysc-Dr-thi" id="1Rn-pd-2vc"/>
+                        <outlet property="progressHud" destination="hwj-ft-CnP" id="lLl-ke-EFn"/>
                         <outlet property="progressLabel" destination="qEY-yY-deF" id="ZaB-rG-M0o"/>
                         <outlet property="questionImage" destination="Wdg-4v-OV0" id="Vzo-Ie-8MR"/>
                         <outlet property="questionLabel" destination="7jD-lO-xvd" id="m00-oM-tPs"/>
@@ -491,7 +472,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="68" y="-24"/>
+            <point key="canvasLocation" x="66.666666666666671" y="-24.456521739130437"/>
         </scene>
     </scenes>
     <resources>
@@ -500,8 +481,7 @@
         <image name="Diego Maradona_A" width="256" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rqK-Cy-aU5"/>
-        <segue reference="2mn-xR-Zyr"/>
-        <segue reference="L4v-IV-NST"/>
+        <segue reference="QQb-Xo-ghi"/>
+        <segue reference="9um-OV-eIi"/>
     </inferredMetricsTieBreakers>
 </document>

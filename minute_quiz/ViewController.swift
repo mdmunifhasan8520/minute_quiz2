@@ -38,8 +38,7 @@ class ViewController: UIViewController {
     //for the Timer
     var startInt = 2
     var startTimer = Timer()
-    
-   
+ 
     
     
     //ui elements from the storyboard
@@ -51,32 +50,42 @@ class ViewController: UIViewController {
     @IBOutlet weak var timer: UILabel!
     @IBOutlet weak var correctAnswerCountLabel: UILabel!
     @IBOutlet weak var wrongAnswerCountLabel: UILabel!
+    @IBOutlet weak var progressHud: UIImageView!
     
-    //@IBOutlet weak var ImageArray: UIImageView!
+    
     
     //create instance of UserDefaults
     let userDefaults = UserDefaults.standard
     
-    //@IBOutlet weak var ImageArray: UIImageView!
-    @IBOutlet weak var ImageArrayView: UIImageView!
-    @IBOutlet weak var ImageArrayView2: UIImageView!
-    @IBOutlet weak var ImageArrayView3: UIImageView!
-    @IBOutlet weak var ImageArrayView4: UIImageView!
-    @IBOutlet weak var ImageArrayView5: UIImageView!
-    @IBOutlet weak var ImageArrayView6: UIImageView!
-    
-    var imageArray: [UIImage] = []
-    //var image: UIImage!
+    //for animation
+    var isGoingToNext = false
+    var heartImages: [UIImage] = []
     
     
+    
+    func createImageArray(total: Int, imagePrefix: String) -> [UIImage] {
+        var imageArray: [UIImage] = []
+        
+        for imageCount in 0..<total {
+            let imageName = "\(imagePrefix)-\(imageCount).png"
+            let image = UIImage(named: imageName)!
+            
+            imageArray.append(image)
+        }
+        
+        return imageArray
+    }
+    func animate(imageView: UIImageView, images: [UIImage]) {
+        imageView.animationImages = images
+        imageView.animationDuration = 1
+        imageView.animationRepeatCount = 1
+        imageView.startAnimating()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*
-        for i in 0..<storedCorrentAnswerArr.count {
-            imageArray.append(allQuestions.list[i].questionImage)
-        }*/
-        
+        heartImages = createImageArray(total: 24, imagePrefix: "heart")
+    
         bestScore = userDefaults.integer(forKey: "hscore")
         homeBestScore = userDefaults.integer(forKey: "hscoreforGamePlay")
         storedCorrentAnswerArr = userDefaults.object(forKey: "scaarr") as? [Int] ?? [Int]()
@@ -96,6 +105,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func answerPressed(_ sender: AnyObject) {
+        if(isGoingToNext) {return}
         if (sender as AnyObject).tag == 1 {
             pickedAnswer = true
         } else if sender.tag == 2 {
@@ -104,8 +114,13 @@ class ViewController: UIViewController {
         checkAnswer()
         
         //after checking the answer proceed to the next question
-        questionNumber = questionNumber + 1
-        nextQuestion()
+        isGoingToNext = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            self.questionNumber = self.questionNumber + 1
+            self.nextQuestion()
+            self.isGoingToNext = false
+        })
+        
         }
     
     func gameStart() {
@@ -187,6 +202,7 @@ class ViewController: UIViewController {
         let currentQuestion = allQuestions.list[questionNumber]
         if currentQuestion.answer == pickedAnswer {
             print("you got it")
+            animate(imageView: progressHud, images: heartImages)
             score = score + 1
             correctAnswerCount = correctAnswerCount + 1
             myCorrectAnswerCollecction.append(currentQuestion.id)
